@@ -25,5 +25,6 @@ urlpatterns = [
     path('MyPage_del/', MyPage_del.as_view(), name='MyPage_del'),  # 수락자 요청페이지 연결 끊기
     path('MyPage_edit/', MyPage_edit.as_view(), name='MyPage_edit'),  # 수락자 요청페이지 연결 끊기
     path('category_set/', Category_Set.as_view(), name='category_set'),
+    path('states/', ReservationCheck.as_view()) # reservation 상태 체크
 
 ]
