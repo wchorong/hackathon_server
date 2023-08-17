@@ -27,7 +27,7 @@ class PostSerializer(serializers.ModelSerializer):
         if user.post_limit == False:
             return data
         else:
-            raise ValidationError("예약 게시판은 1개이상 만들 수 없습니다.")
+            raise ValidationError("요청 게시판은 1개이상 만들 수 없습니다.")
 
     def create(self, validated_data):
         user = self.context.get("request").user

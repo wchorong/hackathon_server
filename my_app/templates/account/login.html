@@ -25,6 +25,15 @@
         <div class="divider"></div>
         <form class="login" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
+            <div class="container" style="margin-bottom: 10px">
+    {% if form.errors %}
+    <span style="font-size: 20px; color: red">
+        {% for field in form.errors.values %}
+            {% for error in field %}
+        - {{ error }}<br>
+            {% endfor %}
+        {% endfor %}
+    </span>{% endif %}</div>
             <div class="loginbox" id="1">
                 <div class="box">
                     <label for="login">이메일을 입력하세요</label>

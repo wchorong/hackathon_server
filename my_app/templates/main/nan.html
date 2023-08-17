@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 {% load static %}
 {% block content %}
 <head>
@@ -54,7 +54,17 @@
     {% else %}
 <form method="post" action="{% url 'user:post_make' %}">
     {% endif %}
+    <div>
     {% csrf_token %}
+    <div class="container" style="margin-top: 10px">
+    {% if form.errors %}
+    <span style="font-size: 20px; color: red">
+        {% for field in form.errors.values%}
+            {% for error in field %}
+        {{ error }}<br>
+            {% endfor %}
+        {% endfor %}
+    </span>{% endif %}</div>
         <div class="mainbox">
             <div class="mapbox" id = "mapbox">
                 <div id="map" class="map">
