@@ -31,7 +31,7 @@ environ.Env.read_env(
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 SITE_ID = 2
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -71,6 +72,7 @@ LIBRARY_INSTALLED_APPS = [
     'allauth.socialaccount.providers.kakao',
     'rest_framework',
     'background_task',
+    'whitenoise.runserver_nostatic',
 ]
 ROOT_URLCONF = 'main.urls'
 INSTALLED_APPS = BASE_INSTALLED_APPS + PROJECT_INSTALLED_APPS + LIBRARY_INSTALLED_APPS

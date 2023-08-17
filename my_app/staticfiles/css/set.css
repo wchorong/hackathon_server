@@ -1,0 +1,86 @@
+.container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+.span_font {
+    font-family: 'Noto Sans KR', sans-serif;
+
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.helper_cate{
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 30px;
+    text-decoration: none;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background: #0B50A1;
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+    line-height: normal;
+    z-index: 1;
+}
+
+.helper_cate:hover{
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 30px;
+    text-decoration: none;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background: #1A4266;
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+    line-height: normal;
+    z-index: 1;
+}
+.checkbox-button {
+  display: inline-block;
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+    margin: 15px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkbox-button input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-button:hover {
+  background-color: #ddd;
+  border-color: #aaa;
+}
+
+.checkbox-button input[type="checkbox"]:checked ~ .checkmark {
+  background-color: #555;
+  border-color: #555;
+}
+
+.checkmark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
+  border-radius: 3px;
+  margin-right: 8px;
+  margin-top: 5.5px;
+  background-color: transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+

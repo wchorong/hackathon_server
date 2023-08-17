@@ -1,0 +1,15 @@
+.custom-input {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s;
+  font-size: 16px;
+}
+
+.custom-input:focus {
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+

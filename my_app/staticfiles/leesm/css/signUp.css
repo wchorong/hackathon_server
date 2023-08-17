@@ -1,0 +1,372 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: flex;
+}
+h1 img {
+    width: 320px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    margin-top: 0%;
+    margin-bottom: 20px;
+}
+.signUp-container {
+    border-radius: 5px;
+    max-width: 1000px;
+    margin: 15px auto;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+.divider {
+    width: 800px;
+    border-top: 3px solid #1A4266;
+    margin-bottom: 20px;
+}
+/* form { 
+    width: 500px;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+.signUp-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0B50A1;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signUp-container input[type="submit"]:hover{
+    width: 100%;
+    padding: 10px;
+    background: #1A4266;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signUp-container label, .signUp-container input {
+    /* margin: 10px 0; */
+    display: flex;
+    font-size: 20px;
+}
+
+    
+.signUp-container input[type="email"],
+.signUp-container input[type="text"],
+.signUp-container input[type="password"],
+.signUp-container input[type="tel"] {
+    width: 500px;
+    /* width: 480px; */
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 20px;
+    background-color: white;
+}
+.signUp-container input[type="tel"] {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type=checkbox] {  
+    display: none;  
+}
+
+input[type=checkbox] + label{
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 25px;  
+    margin-right: 15px;  
+    font-size: 20px;
+}
+
+input[type=checkbox]+ label:before {     
+
+    content: "";  
+    display: inline-block;  
+    width: 20px;  
+    height: 20px;  
+    margin-right: 10px;  
+    position: absolute;  
+    left: 0;  
+    bottom: 1px;  
+    background-color: #ccc;  
+    border-radius: 2px; 
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);  
+}
+input[type=checkbox]:checked + label:before { 
+
+    content: "\2713";  /* 체크모양 */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);  
+    font-size: 18px; 
+    font-weight:800; 
+    color: #fff;  
+    background:#2f87c1;
+    text-align: center;  
+    line-height: 18px;  
+
+} 
+/* -------------------------------- */
+.btnwr{
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+
+}
+.helper-checkbox{
+    margin-top: 10px;
+}
+.www{
+    /* width: 500px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.inputbox{
+    /* z-index: 1; */
+    /* border: 1px black solid; */
+    width: 540px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* margin-right: 10px; */
+}
+
+.inputbox1{
+    z-index: 2;
+    /* border: 1px black solid; */
+    width: 540px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* margin-right: 10px; */
+    /* box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px; */
+}
+.inputbox1 label{
+    width: 500px;
+    margin-top: 10px;
+}
+.inputbox label{
+    margin-top: 10px;
+    width: 500px;
+}
+
+.signUp-container input{
+    margin: 10px;
+
+
+}
+.tuto1 {
+    /* display: none; */
+    margin-left: -690px;
+    margin-top: -560px;
+    z-index: 2;
+}
+.tutoimg1{
+    margin-left: 10px;
+    /* margin-top: 500px; */
+    /* z-index: 1000; */
+}
+
+.tutobox1{
+    border-radius: 50px;
+    /* display: none; */
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -280px;
+    margin-top: -90px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+.tuto2 {
+    display: none;
+    margin-left: -690px;
+    margin-top: -450px;
+    z-index: 2;
+}
+.tutoimg2{
+    margin-left: 10px;
+    /* margin-top: 500px; */
+    /* z-index: 1000; */
+}
+
+.tutobox2{
+    border-radius: 50px;
+    /* display: none; */
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -280px;
+    margin-top: -90px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+.tuto3 {
+    display: none;
+    margin-left: -690px;
+    margin-top: -350px;
+    z-index: 2;
+}
+.tutoimg3{
+    margin-left: 10px;
+    /* margin-top: 500px; */
+    /* z-index: 1000; */
+}
+
+.tutobox3{
+    border-radius: 50px;
+    /* display: none; */
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -280px;
+    margin-top: -90px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+.tuto4 {
+    display: none;
+    margin-left: -690px;
+    margin-top: -245px;
+    z-index: 2;
+}
+.tutoimg4{
+    margin-left: 10px;
+    /* margin-top: 500px; */
+    /* z-index: 1000; */
+}
+
+.tutobox4{
+    border-radius: 50px;
+    /* display: none; */
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -280px;
+    margin-top: -90px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.tuto5 {
+    display: none;
+    margin-left: -690px;
+    margin-top: -140px;
+    z-index: 2;
+}
+.tutoimg5{
+    margin-left: 10px;
+    /* margin-top: 500px; */
+    /* z-index: 1000; */
+}
+
+.tutobox5{
+    border-radius: 50px;
+    /* display: none; */
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -280px;
+    margin-top: -90px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+.tuto6 {
+    display: none;
+    margin-left: -690px;
+    margin-top: -60px;
+    z-index: 2;
+}
+.tutoimg6{
+    margin-left: 10px;
+    margin-top: 10px;
+    /* z-index: 1000; */
+}
+
+.tutobox6{
+    border-radius: 50px;
+    /* display: none; */
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -280px;
+    margin-top: -140px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+.line{
+    width: 370px;
+    height: 60px;
+    border-bottom: 1px #1A4266 solid ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tutologo{
+    width: 100px;
+    height: 40px;
+}
+.tutocontent{
+    margin-top: 22px;
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+.bttn{
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    width: 71px;
+    height: 27px;
+    border-radius: 10px;
+    background: rgba(16, 90, 159, 0.80);
+    margin-top: 10px;
+    /* margin-left: 270px; */
+    text-align: center;
+    padding: 3px;
+}

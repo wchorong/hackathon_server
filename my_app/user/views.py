@@ -13,10 +13,6 @@ from social_account.models import Users
 from .models import Help_post
 from django.utils import timezone
 from .serializer import EditSerializer, PostSerializer,EditPostSerializer
-
-
-
-#tasks
 from .tasks import reservation_state_change
 
 class ReservationCheck(APIView):

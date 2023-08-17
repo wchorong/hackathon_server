@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+.bodycon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uibar {
+  width: 1400px;
+  height: 160px;
+  border-bottom: 1px black solid;
+  display: flex;
+}
+
+.logo {
+  width: 185px;
+  height: 70px;
+  flex-shrink: 0;
+  margin-bottom: 23px;
+  margin-top: 67px;
+  margin-left: 20px;
+  background-color: #000;
+}
+
+.tuto {
+  color: #000;
+  font-family: Arial;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 23px;
+  margin-top: 109px;
+  margin-right: 720px;
+  margin-left: 50px;
+  margin-bottom: 17px;
+}
+
+.im {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+}
+.mypagebox {
+  display: flex;
+  align-items: center;
+  margin-top: 98px;
+  margin-bottom: 7px;
+  margin-left: 26px;
+}
+
+.mypage {
+  color: #000;
+  font-family: Arial;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 8px;
+}
+
+.mainbox {
+  margin-top: 44px;
+  width: 800px;
+  height: 1000px;
+  /* border: 1px black solid; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.textBox1 {
+  /* border: 1px black solid; */
+  color: #000;
+  font-family: Arial;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  line-height: 46px;
+  margin-top: 189px;
+  margin-bottom: 30px;
+}
+
+.textBox2 {
+  /* border: 1px black solid; */
+
+  color: #000;
+  font-family: Arial;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+
+.successImgBox {
+  /* border: 1px black solid; */
+  width: 180px;
+  height: 183px;
+  left: 666px;
+  top: 453px;
+  margin-bottom: 32px;
+}
+
+.twoBtnBox {
+  /* border: 1px black solid; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.twoBtnBox a {
+  display: flex;
+  width: 302px;
+  height: 83px;
+  padding: 18px 30px 17px 30px;
+  justify-content: center;
+  align-items: center;
+  margin: 14px;
+  border-radius: 20px;
+  border: 1px solid #5d5d5d;
+  background-color: white;
+  color: #000;
+  font-family: Arial;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
