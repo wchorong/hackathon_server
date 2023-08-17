@@ -197,11 +197,10 @@ class Edit_post(LoginRequiredMixin, APIView):  # 요청 수정
         if request.user.name == '':
             return redirect('account:name_check')
         post = Help_post.objects.get(user=request.user)
-        form = EditPostSerializer()
         edit_set = 1
         content = post.content
         address = post.address
-        return Response(status=status.HTTP_200_OK, template_name='main/nan.html', data={'form': form,
+        return Response(status=status.HTTP_200_OK, template_name='main/nan.html', data={
                                                                                         'content': content,
                                                                                         'address' : address,
                                                                                         'edit_set': edit_set})
