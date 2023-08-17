@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   django_app:
     build: .
     env_file:
@@ -20,6 +21,7 @@ services:
       -  "80:80"
     depends_on:
       - django_app
+
 volumes:
   static:
   media:
