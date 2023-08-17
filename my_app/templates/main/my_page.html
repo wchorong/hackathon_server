@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>이름 : {{ name }}</div>
+<div>휴대폰 번호 : {{ phone_num }}</div>
+<div>이메일 : {{ email_adress }}</div>
+<div>_______________________________________________</div>
+{% if post %}
+<div>내용 : {{ post.content }}</div>
+<div>약속 시간 : {{ post.date_time }}</div>
+<div>약속 장소 : {{ post.address}}</div>
+{% endif %}
+
+{% if post.helper_user %}
+<div>도우미 : {{ post.helper_user.name }}</div>
+<div>도우미 핸드폰 번호 : {{ post.helper_user.phone_num }}</div>
+{% endif %}
+
+{% for helper_post in helper_post %}
+<div>요청자 이름 : {{ helper_post.user.name }}</div>
+<div>요청자 핸드폰 번호 : {{ helper_post.user.phone_num }}</div>
+<div>내용 : {{ helper_post.content }}</div>
+<div>약속 시간 : {{ helper_post.date_time }}</div>
+<div>약속 장소 : {{ helper_post.address }}</div>
+{% endfor %}
+<div><a href="{% url 'user:edit_member' %}">회원정보 수정</a></div>
+</body>
+</html>

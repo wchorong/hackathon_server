@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+{% load i18n %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signUp Page</title>
+    <link href="{% static 'habin/css/signup.css' %}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="signUp-container">
+        <h1><img class="logo" src="logo.png" alt="Logo"></h1>
+        <div class="divider"></div>
+
+        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  <div class="container">
+    <span style="font-size: 20px; color: red">
+        {{ form.errors }}
+    </span></div>
+            <label for="email">이메일을 입력하세요</label>
+            <input type="email" id="email" name="email" required
+            value="{{ form.email.value|default_if_none:'' }}">
+
+            <label for="password1">비밀번호를 입력하세요</label>
+            <input type="password" id="password1" name="password1" required
+            value="{{ form.password1.value|default_if_none:'' }}">
+
+            <label for="password2">비밀번호를 다시 입력하세요</label>
+            <input type="password" id="password2" name="password2" required
+            value="{{ form.password2.value|default_if_none:'' }}">
+
+            <label for="name">이름을 입력하세요</label>
+            <input type="text" id="name" name="name" required
+            value="{{ form.name.value|default_if_none:'' }}">
+
+            <label for="phone_num">전화번호를 입력하세요</label>
+            <input type="tel" id="phone_num" name="phone_num" pattern="[0-9]{3}[0-9]{3,4}[0-9]{4}" placeholder="000-0000-0000(숫자만 입력해주세요)" required
+            value="{{ form.phone_num.value|default_if_none:'' }}">
+
+            <div class="helper-checkbox">
+                <label for="helper_check">방울 도우미 되기</label>
+              <input type="checkbox" name="helper_check" value='false' id="helper_check"/>
+            </div>
+            <input type="submit" value="회원가입 하기(방우리 되기 !)">
+        </form>
+    </div>
+<script>
+  const checkbox = document.getElementById('helper_check');
+
+    checkbox.addEventListener('change', function() {
+      if (checkbox.checked) {
+        checkbox.value = true;
+      } else {
+        checkbox.value = false;
+      }
+    });
+
+</script>
+</body>
+{% endblock %}
+</html>

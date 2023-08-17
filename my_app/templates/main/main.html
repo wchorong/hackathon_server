@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>방울</title>
+    <link href="{% static 'css/set.css' %}" rel="stylesheet" />
+</head>
+<body>
+Main html
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+  <button type="submit">로그아웃</button>
+</form>
+<a href="{% url 'user:mypage' %}">마이 페이지</a>
+</body>
+</html>
+{% endblock %}

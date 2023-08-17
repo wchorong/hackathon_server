@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+{% block content %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'jun/css\helperMain.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a191483d57140c657a95e287bfc4c5d7&libraries=services,clusterer,drawing"></script>
+    <title>helperMain</title>
+  </head>
+  <body class="bodycon">
+    <div class="uibar" style="height: 120px">
+      {% comment %} <div class="logo"></div> {% endcomment %}
+      <a href="{% url 'user:main_site' %}"><img class="logo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></a>
+      <div class="mypagebox">
+        <img src="{% static 'leesm/img/Ellipse.png' %}" alt="sdf" class="im">
+            <div class="mypage"><a style="text-decoration: none; color: black" href="{% url 'user:mypage' %}">마이페이지</a></div>
+            <div class = "logoutbox">
+              <form style="margin-left: 20px" method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  <button style="background: none; border: none; padding: 0; margin: 0; cursor: pointer; font-size: 20px" type="submit">
+    로그아웃</button>
+</form>
+          </div>
+      </div>
+    </div>
+    <div id="sections">
+      <section class="left">
+        <ul id="modal-open">
+          {% for post in post %}
+          <li onclick="moveLocation('{% url 'user:accept_helper' post.id %}','{{post.date_time}}','{{ post.address }}','{{post.content}}')" moveLocation()>
+            <a >
+              <span >날짜 : {{post.date_time}}</span>
+              <span >주소 : {{ post.address }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      <section class="right">
+        <div class="dittoComputer" style="margin-top: 150px;">
+          <img src="{% static '/jun/img/ditto.jpg' %}" alt="sdf" />
+        </div>
+        <div class="rightBox" id="rightBox">
+          <div class="contentbox" id = "contentbox">
+          </div>
+          <div class="mapAndContent">
+            <div id="map"></div>
+            <div class="mapContent">
+              <div class="nanTime-right" id = "nanTime-right">>난민 요청 시간</div>
+              <div class="nanLocation-right" id = "nanLocation-right">>난민 위치 정보</div>
+            </div>
+            <div class="helpBtn-Box">
+              <a href="" class="leftBtn" id="help">도움주기</a>
+              <a href="" class="rightBtn" id="close">창 닫기</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="{% static 'jun/js/helperMain.js' %}"></script>
+  </body>
+{% endblock %}
+</html>

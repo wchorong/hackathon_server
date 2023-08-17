@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %} {% block content %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'jun/css/sucessAccept.css' %}" rel="stylesheet" />
+    <link href="/static/jun/css/sucessAccept.css" rel="stylesheet" />
+    <link href="{% static 'css/font.css' %}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <title>수락 성공 페이지</title>
+  </head>
+  <body class="bodycon">
+    <div class="uibar">
+      <div class="logo" src="{% static 'leesm/img/Ditto.png' %}" ></div>
+      <div class="mypagebox">
+        <img src="{% static 'leesm/img/Ellipse%203.png' %}" alt="sdf" class="im">
+            <div class="mypage"><a style="text-decoration: none; color: black" href="{% url 'user:mypage' %}">마이페이지</a></div>
+            <div class = "logoutbox">
+              <a>로그아웃</a>
+          </div>
+      </div>
+        </div>
+      </div>
+    </div>
+    <form action="">
+      <div class="mainbox">
+        <div class="textBox1">
+          <span class="span_font">수락이 성공적으로 완료 되었습니다.</span>
+        </div>
+        <div class="textBox2">
+        </div>
+        <div class="successImgBox">
+          <img src="{% static 'jun/img/성공%20사진.png' %}" alt="" />
+        </div>
+        <div class="twoBtnBox">
+          <a style="text-decoration: none" href="{% url 'user:mypage' %}">
+            <span class="span_font">수락 현황 보기</span></a
+          >
+          <a style="text-decoration: none" href="{% url 'user:helper_main' %}">
+            <span class="span_font">메인화면 가기</span></a
+          >
+        </div>
+      </div>
+    </form>
+  </body>
+
+  {% endblock %}
+</html>

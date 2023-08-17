@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load i18n %}
+{% load account socialaccount %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signIn Page</title>
+    <link rel="stylesheet" href="{% static 'leesm/css/signIn.css' %}">
+    <link href="{% static 'css/set.css' %}" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    {% if tutorial %}
+    <style>
+        .loginbox{
+            box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+        }
+    </style>
+    {% endif %}
+</head>
+<body>
+    <div class="login-container">
+        <h1><img class="logo" src="logo.png" alt="Logo"></h1>
+        <div class="divider"></div>
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            <div class="loginbox" id="1">
+                <div class="box">
+                    <label for="login">이메일을 입력하세요</label>
+                    <input type="email" id="login" name="login" required
+                    value="{{ form.login.value|default_if_none:'' }}">
+                </div>
+                <div class="box">
+                    <label for="password">비밀번호를 입력하세요</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </div>
+            
+            
+            <div class="login-options">
+                <div class="remember-login">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">자동로그인</label>
+                </div>
+                <a class="forgot-password" href="{% url 'account_reset_password' %}">비밀번호 발급</a>
+            </div>
+            <div class="con">
+                <input type="submit" value="로그인">
+            </div>
+            
+        </form>
+        
+        <a class="loginHelp" href="{% url 'user:tutorial_start' %}">처음이라면 도와드릴까요 ?</a>
+        
+        <label class="SLogin_L">SNS 계정으로 로그인하기</label>
+        
+
+        <div class="SLogin_a container">
+            <div style="padding-right: 50px">
+            <form method="post" action="{% provider_login_url 'naver'%}">
+          {% csrf_token %}
+          <button class="naverbox" style="background-color: white; border: white; cursor: pointer;">
+            <img src="{% static 'img/naver.png' %}" alt="Naver">
+          </button>
+        </form>
+                </div>
+        <div>
+            <form method="post" action="{% provider_login_url 'kakao'%}">
+          {% csrf_token %}
+          <button class="kakaobox" style="background-color: white; border: white; cursor: pointer;">
+            <img src="{% static 'img/kakao.png' %}" alt="Kakao">
+          </button>
+        </form>
+        </div>
+        </div>
+        {% if tutorial %}
+        <div id="2" class="sin">
+            <a class="signUp_Btn" href="{% url 'user:tutorial_signup' %}">회원가입 > </a>
+        </div>
+        {% else %}
+        <div id="2" class="sin">
+            <a class="signUp_Btn" href="{% url 'account_signup' %}">회원가입 > </a>
+        </div>
+        {% endif %}
+        {% if tutorial %}
+        <div class="tuto1" id="tuto1">
+            <img src="{% static 'leesm/img/Arrow 2.png' %}" alt="" class="tutoimg1">
+            <div class="tutobox1">
+            
+                <div class="line">
+                    <div class="tutologo">
+                        로고
+                    </div>
+                </div>
+                <div class="tutocontent">
+                    아이디와 비밀번호가 있다면 이곳에 입력하세요
+                </div>
+                <div onclick="next('tuto1','tuto2','1','2','username')" class="bttn">다음>></div>
+            </div>
+        </div>
+        <div class="tuto2" id="tuto2">
+            <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg2">
+            <div class="tutobox2">
+            
+                <div class="line">
+                    <div class="tutologo">
+                        로고
+                    </div>
+                </div>
+                <div class="tutocontent">
+                    사이트 이용이 처음이시라면 회원가입을 하세요
+                </div>
+                <div onclick="previous('tuto2','tuto1','1','2')" class="bttn"><< 이전</div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <script type="text/javascript" src="{% static 'leesm/js/loginout.js' %}"></script>
+</body>
+{% endblock %}
+</html>

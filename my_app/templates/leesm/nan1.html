@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    
+    <link rel="stylesheet" href="css/nan.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a191483d57140c657a95e287bfc4c5d7&libraries=services,clusterer,drawing"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    
+
+
+    <title>Document</title>
+</head>
+<body class="bodycon" id="body">
+    <!-- <div class="stop"></div> -->
+    <div class="uibar">
+        <div class="logo">
+        </div>
+        <div class="tuto" >도와드릴까요?</div>
+        <div class="mypagebox">
+            <img src="img/Ellipse 3.png" alt="sdf" class="im">
+            <div class="mypage">마이페이지</div>
+        </div>
+        
+    </div>
+
+    <form action="" onsubmit="return doAction();">
+        <div class="mainbox">
+
+            <div class="tuto1" id="tuto1" name = "tuto1">
+                <img src="img/Arrow 3.png" alt="">
+                <div class="tutobox1">
+                    <div class="line">
+                        <div class="tutologo">
+                            로고
+                        </div>
+                    </div>
+                    <div class="tutocontent">
+                        이곳에서 도움을 요청할 주소를 입력하세요
+                    </div>
+                    <div onclick="next1('tuto1','tuto2')" class="bttn">다음>></div>
+    
+                </div>
+            </div>
+
+            <div class="mapbox">
+                
+                <div id="map" class="map">
+                    <div class="add">
+                        <input type="text" id="address" placeholder="주소 검색하기">
+                        <button type="button" id="searchBtn"><img src="img/돋보기.png" alt="검색"></button>
+                    </div>
+
+                </div>
+                <div class="mapaddress">
+                    <input type="text" value="" name="inputValue" placeholder="oo도 oo시 oo동">
+                </div>
+            </div>
+            
+            
+
+            <div class="contentbox" id="contentbox">
+                <div class="tuto2" id="tuto2" name = "tuto2">
+                    <img src="img/Arrow 3.png" alt="">
+                    <div class="tutobox2">
+                        <div class="line">
+                            <div class="tutologo">
+                                로고
+                            </div>
+                        </div>
+                        <div class="tutocontent">
+                            이곳에서 도움을 요청할 주소를 입력하세요
+                        </div>
+                        <div onclick="next2('tuto2','tuto3')" class="bttn">다음>></div>
+        
+                    </div>
+                </div>
+                <label for="content">본문 내용을 입력하세요</label>
+                <input type="text" name="content" id="content">
+            </div>
+
+
+            <div class="tuto3" id="tuto3" name = "tuto3" >
+                <img src="img/Arrow 3.png" alt="">
+                <div class="tutobox2">
+                    <div class="line">
+                        <div class="tutologo">
+                            로고
+                        </div>
+                    </div>
+                    <div class="tutocontent">
+                        이곳에서 도움을 요청할 주소를 입력하세요
+                    </div>
+                    <div onclick="next3('tuto3','tuto4')" class="bttn">다음>></div>
+    
+                </div>
+            </div>
+            
+            <div class="datebox" id="datebox">
+                <label for="content">날짜를 선택하세요</label>
+                <input type="date" href="#pop_info_1" class="btn_open" value="" name="inputValue2" id="date" placeholder="" onclick="showdate()">
+                
+                <div class="con">
+                    <div id="pop_info_1" name = "calendar" style="display:none;">
+                        <div class="calendarbox">
+
+                            <div class="date_wrap">
+
+                                <div class="date_month_hd">
+                                    <div class="button_wrap">
+                                    <div type="button" id="month-prev" class="month-moveL"><</div>
+                                    <div id="yearMonth" class="month_n">2022.05</div>
+                                    <div type="button" id="month-next" class="month-moveR">></div>
+                                    </div>
+                                </div>
+
+                                <table class="date_month_bd">
+                                    <thead>
+                                    <tr>
+                                        <th class="sun_h">일</th>
+                                        <th>월</th>
+                                        <th>화</th>
+                                        <th>수</th>
+                                        <th>목</th>
+                                        <th>금</th>
+                                        <th class="sat_h">토</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl-month">
+                                    <!--insert calender by javascript-->
+                                </tbody>
+                                </table>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="tuto4" id="tuto4" name = "tuto4" >
+                <img src="img/Arrow 3.png" alt="">
+                <div class="tutobox2">
+                    <div class="line">
+                        <div class="tutologo">
+                            로고
+                        </div>
+                    </div>
+                    <div class="tutocontent">
+                        이곳에서 도움을 요청할 주소를 입력하세요
+                    </div>
+                    <div onclick="myFunction()" class="bttn">다음>></div>
+    
+                </div>
+            </div>
+            <div class="timebox" id="time">
+                <label for="content">시간을 선택하세요</label>
+                <input id='timepicker1' type='time' name='inputValue3' value = "" href = "#pop_info_2"  id="time" class="btn_open" onclick="showtime()"/>
+                <div class="con">
+                    <div id="pop_info_2" style="display:none;">
+                        <div class="timeinputbox">
+                            <div class="timeinputboxiner">
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('06:00:00')">6:00</div>
+                                    <div class="timebtn" onclick="clicktime('06:30:00')">6:30</div>
+                                    <div class="timebtn" onclick="clicktime('07:00:00')">7:00</div>
+                                    <div class="timebtn" onclick="clicktime('07:30:00')">7:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('08:00:00')">8:00</div>
+                                    <div class="timebtn" onclick="clicktime('08:30:00')">8:30</div>
+                                    <div class="timebtn" onclick="clicktime('09:00:00')">9:00</div>
+                                    <div class="timebtn" onclick="clicktime('09:30:00')">9:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('10:00:00')">10:00</div>
+                                    <div class="timebtn" onclick="clicktime('10:30:00')">10:30</div>
+                                    <div class="timebtn" onclick="clicktime('11:00:00')">11:00</div>
+                                    <div class="timebtn" onclick="clicktime('11:30:00')">11:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('12:00:00')">12:00</div>
+                                    <div class="timebtn" onclick="clicktime('12:30:00')">12:30</div>
+                                    <div class="timebtn" onclick="clicktime('13:00:00')">13:00</div>
+                                    <div class="timebtn" onclick="clicktime('13:30:00')">13:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('14:00:00')">14:00</div>
+                                    <div class="timebtn" onclick="clicktime('14:30:00')">14:30</div>
+                                    <div class="timebtn" onclick="clicktime('15:00:00')">15:00</div>
+                                    <div class="timebtn" onclick="clicktime('15:30:00')">15:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('16:00:00')">16:00</div>
+                                    <div class="timebtn" onclick="clicktime('16:30:00')">16:30</div>
+                                    <div class="timebtn" onclick="clicktime('17:00:00')">17:00</div>
+                                    <div class="timebtn" onclick="clicktime('17:30:00')">17:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('18:00:00')">18:00</div>
+                                    <div class="timebtn" onclick="clicktime('18:30:00')">18:30</div>
+                                    <div class="timebtn" onclick="clicktime('19:00:00')">19:00</div>
+                                    <div class="timebtn" onclick="clicktime('19:30:00')">19:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('20:00:00')">20:00</div>
+                                    <div class="timebtn" onclick="clicktime('20:30:00')">20:30</div>
+                                    <div class="timebtn" onclick="clicktime('21:00:00')">21:00</div>
+                                    <div class="timebtn" onclick="clicktime('21:30:00')">21:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('22:00:00')">22:00</div>
+                                    <div class="timebtn" onclick="clicktime('22:30:00')">22:30</div>
+                                    <div class="timebtn" onclick="clicktime('23:00:00')">23:00</div>
+                                    <div class="timebtn" onclick="clicktime('23:30:00')">23:30</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="tuto5" id="tuto5" name = "tuto5" >
+                <img src="img/Arrow 3.png" alt="">
+                <div class="tutobox2">
+                    <div class="line">
+                        <div class="tutologo">
+                            로고
+                        </div>
+                    </div>
+                    <div class="tutocontent">
+                        이곳에서 도움을 요청할 주소를 입력하세요
+                    </div>
+                    <div onclick="myFunction()" class="bttn">다음>></div>
+    
+                </div>
+            </div>
+            <div class="btnbox">
+                <a>요청하기</a>
+            </div>
+        </div>
+    </form>
+    
+    <script type="text/javascript" src="js/nan.js"></script>
+</body>
+</html>

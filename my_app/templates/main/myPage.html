@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myPage Page</title>
+    <link rel="stylesheet" href="{% static 'habin/css/myPage.css' %}">
+    <link href="{% static 'css/set.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="myPage-container">
+        <h1><a href="{% url 'user:main_site' %}"><img class="logo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></a></h1>
+        <div class="logo-divider"></div>
+        <div class="page-option">
+            <div class="page-link">
+            <a class="to-mainPage" href="{% url 'user:main_site' %}">메인 화면  </a>
+                <span> > </span>
+            <a class="to-myPage" href="{% url 'user:mypage' %}">마이페이지</a>
+            </div>
+            <a class="imf-edit" href="{% url 'user:edit_member' %}"> 수정 </a>
+        </div>
+        <div class="user-data">
+            <div class="user-data-item">
+                <span>이름</span>
+                <span>{{ name }}</span>
+            </div>
+            <div class="divider"></div>
+            <div class="user-data-item">
+                <span>전화번호</span>
+                <span>{{ phone_num }}</span>
+            </div>
+            <div class="divider"></div>
+            <div class="user-data-item">
+                <span>이메일</span>
+                <span>{{ email_adress }}</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <div class="request-container">
+
+            {% if post and helper_set == False %}
+             <div class="full">
+                <div style="display: block"><div style="text-align: left">
+                    <span style="font-weight: bold; font-size: large">카테고리 : </span>
+                    <span style="color: red; font-weight: bold; font-size: large">{{ post.get_category_display }}</span></div>
+                    <div class="request-message"><span>내용 : </span>{{ post.content }}</div></div>
+                <div class="request-container-S">                
+                    <div class="request-S">
+                        <div class="request-imf-S">
+                            <span> > 요청 시간 :  </span>
+                            <span> {{ post.date_time }}</span>
+                        </div>
+                        <div class="request-imf-S">
+                            <span> > 요청 장소 :</span>
+                            <span>{{ post.address}}</span>
+                        </div>
+                    </div>
+                    {% if date_set %}
+                    <a class="btn-S" href="{% url 'user:MyPage_edit' %}">수정</a>
+                    <a class="btn-S" href="{% url 'user:MyPage_del' %}">취소</a>
+                    {% endif %}
+                </div>
+                <a class="F5-link" href="{% url 'user:mypage' %}">도우미 확인하기</a>
+            </div>
+            {% endif %}
+            {% if post == False and helper_check == False %}
+            <div class="empty">
+                <div class="empty-message">요청 내역이 비어있습니다.</div>
+                <a class="help-link" href="{% url 'user:post_make' %}">도움 요청하러 가기</a>
+            </div>
+            {% endif %}
+
+
+            {% if post.helper_user and helper_set == True %}
+            <div class="full">
+                <div style="display: block"><div style="text-align: left">
+                    <span style="font-weight: bold; font-size: large">카테고리 : </span>
+                    <span style="color: red; font-weight: bold; font-size: large">{{ post.get_category_display }}</span></div>
+                    <div class="request-message"><span>내용 : </span>{{ post.content }}</div></div>
+
+                <div class="helper-imf"> 
+                    <div class="helper-message">당신의 도우미를 찾았어요. 약속된 시간과 장소에서 도우미를 만나요 !</div>
+                    <div> > 도우미 이름 : {{ post.helper_user.name }}</div>
+                </div>
+                <div class="container">
+                <div style="width: 400px; height: 200px;" class="request container">
+                    <div class="request-imf">
+                        <span style="width: 150px" class="R-imf"> > 요청 시간 :</span>
+                        <span>{{ post.date_time }}</span>
+                    </div>
+                    <div class="request-imf">
+                        <span style="width: 150px" class="R-imf"> > 요청 장소 :</span>
+                        <span>{{ post.address}}</span>
+                    </div>
+                </div>
+                    </div>
+                <div>
+                    <div class="map" id="map" style="border: black 1px solid"></div>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=87aaf00778b7a0f43ac93829d5a16e07&libraries=services"></script>
+                    <script>
+                    var address = "{{ post.address}}";
+                    </script>
+                </div>
+            </div>
+            {% endif%}
+            <div class="full">
+            {% for helper_post in helper_post %}
+                <div style="display: block"><div style="text-align: left">
+                    <span style="font-weight: bold; font-size: large">카테고리 : </span>
+                    <span style="color: red; font-weight: bold; font-size: large">{{ helper_post.get_category_display }}</span></div>
+                    <div class="request-message"><span>내용 : </span>{{ helper_post.content }}</div></div>
+                <div class="request container">
+                    <div style="text-align: center">
+            <div class="request-imf" style="margin-top: 20px">
+                        <span class="R-imf"> > 요청자 이름 :</span>
+                        <span class="R2-imf">{{ helper_post.user.name }}</span>
+                    </div>
+            <div class="request-imf">
+                        <span class="R-imf"> > 요청자 핸드폰 번호 :</span>
+                        <span class="R2-imf">{{ helper_post.user.phone_num }}</span>
+                    </div>
+            <div class="request-imf">
+                        <span class="R-imf"> > 요청 시간 :</span>
+                        <span class="R2-imf">{{ helper_post.date_time }}</span>
+                    </div>
+            <div class="request-imf">
+                        <span class="R-imf"> > 요청 장소 :</span>
+                        <span class="R2-imf">{{ helper_post.address }}</span>
+                    </div>
+                        {% if helper_post.date_time > helper_time %}
+                 <a class="cancel-btn" href="{% url 'user:helper_disconnect' helper_post.id %}">요청 취소하기</a>
+                        {% else %}
+                        <div class="container" style="height: 50px">
+                            <span style="font-size: 15px; color: red;">3시간 남은 요청을 취소할 수 없습니다.</span></div>
+                        {% endif %}
+                </div>
+                    </div>
+                <div class="divider" style="width: 700px"></div>
+{% endfor %}
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="withdrawal">
+            <a class="witdrawal-btn" href="{% url 'user:delete_account' %}">탈퇴하기</a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="{% static 'habin/js/map.js' %}"></script>
+{% endblock %}
+</html>

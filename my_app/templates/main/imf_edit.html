@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imf-edit Page</title>
+    <link rel="stylesheet" href="{% static 'habin/css/imf_edit.css' %}">
+</head>
+<body>
+    <div class="edit-container">
+        <h1><a href="{% url 'user:main_site' %}"><img class="logo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></a></h1>
+        <div class="logo-divider"></div>
+        <div class="page-option">
+            <div class="page-link">
+            <a class="to-mainPage" href="{% url 'user:main_site' %}">메인 화면  </a>
+            <a class="to-myPage" href="{% url 'user:mypage' %}">  > 마이페이지</a>
+            <a class="to-imf-edit-page" href="{% url 'user:edit_member' %}">  > 회원정보 수정</a>
+            </div>
+        </div>
+        <form method="post" action="{% url 'user:edit_member' %}">
+    {% csrf_token %}
+        <div class="user-data">
+            <div class="user-data-item">
+                  <label for="name"><span>이름</span></label>
+                <input style="padding-left: 30px;" type="text" id="name" name="name" required
+            value="{{ form.name.value|default_if_none:'' }}">
+            </div>
+            <div class="divider"></div>
+            <div class="user-data-item">
+                <label for="phone_num"><span>핸드폰 번호</span></label>
+                <input style="padding-left: 30px;" type="tel" id="phone_num" name="phone_num" required
+            value="{{ form.phone_num.value|default_if_none:'' }}">
+            </div>
+            <div class="divider"></div>
+        </div>
+        <div class="imf-save">
+            <button style="cursor: pointer;" class="imf-save-btn" type="submit">수정 완료</button>
+        </div>
+        </form>
+    </div>
+</body>
+{% endblock %}
+</html>

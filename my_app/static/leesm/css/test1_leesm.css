@@ -1,0 +1,29 @@
+.con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box1{
+    height: 1000px;
+    width: 500px;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.title{
+    height: 100px;
+    width: 200px;
+    border: 1px black solid;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.text{
+    height: 500px;
+    width: 300px;
+    border: 2px black solid;
+    text-align: center;
+}

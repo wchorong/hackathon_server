@@ -1,0 +1,95 @@
+{% load i18n %}
+{% load account socialaccount %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link href="{% static 'css/set.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/input_style.css' %}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<div class="container" style="width: 1000px;">
+    <div>
+        <div class="container" style="margin-top: 80px">
+            <div class="container" style="width: 320px; height: 110px; border: 2px deepskyblue solid;">
+                <img style="object-fit: cover; width: 100%; height: 100%" src="{% static 'img/water_drops.png' %}" alt="Naver">
+            </div></div>
+        <div class="container" style="margin-top: 40px">
+        <div style="border: 2px black solid; width: 800px;"><img></div></div>
+        <div class="container">
+            <div style="width: 700px;">
+            <form class="login" method="POST" action="{% url 'account_login' %}">
+                <div>
+  {% csrf_token %}
+                    <div class="container">
+    <span style="font-size: 20px; color: red" class="errorlist">
+        {{form.non_field_errors}}
+    </span></div>
+                    <div class="container">
+  <div style="margin-top: 35px; width: 500px">
+
+      <div style="margin-left: 13px">
+          <span class="span_font" style="font-size: 20px">이메일</span></div>
+      <input style="width: 500px; height: 60px; border-radius: 25px;font-size: 20px; padding-left: 30px; border: 1px black solid"
+             type="text" name="login" id="login" class="login custom-input" placeholder="exemple@exemple.com"
+                                        value="{{ form.login.value|default_if_none:'' }}"/>
+      </div></div>
+                <div class="container">
+  <div style="margin-top: 25px; width: 500px">
+      <div style="margin-left: 13px">
+          <span class="span_font" style="font-size: 20px;">비밀번호</span></div>
+        <input style="width: 500px; height: 60px; border-radius: 25px;font-size: 20px; padding-left: 30px; border: 1px black solid"
+                type="password" name="password" id="password" class="password custom-input" placeholder="비밀번호"
+        value="{{ form.password.value|default_if_none:'' }}"/>
+      </div></div>
+                    <div class="container">
+                <div style="width: 500px; text-align: right; margin-top: 20px">
+                    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">
+                        <span class="span_font" style="font-size: 20px; color: 3072C1">비밀번호를 잊어버렸나요? ></span></a></div></div>
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+                <div class="container" style="margin-top: 60px">
+  <button style="width: 500px; height: 60px; border-radius: 25px; background-color: 0B50A1;font-size: 20px;"
+          class="primaryAction" type="submit"><span class="span_font" style="font-size: 30px; color: white">로그인</span></button></div>
+                </div>
+</form>
+                </div>
+        </div>
+        <div class="container" style="margin-top: 40px">
+            <span class="span_font" style="font-size: 15px; color: black">SNS계정으로 로그인하기</span></div>
+
+<div class="socialaccount_ballot">
+<div class="container" style="margin-top: 20px">
+  <form method="post" action="{% provider_login_url 'kakao'%}">
+          {% csrf_token %}
+          <button class="kakaobox" style="background-color: white; border: white; cursor: pointer;">
+            <img src="{% static 'img/kakao.png' %}" alt="Kakao">
+          </button>
+        </form>
+        <form method="post" action="{% provider_login_url 'naver'%}">
+          {% csrf_token %}
+          <button class="naverbox" style="background-color: white; border: white; cursor: pointer;">
+            <img src="{% static 'img/naver.png' %}" alt="Naver">
+          </button>
+        </form>
+
+</div>
+    <div class="container"style="margin-top: 30px; margin-bottom: 50px">
+        <a href="{{ signup_url }}">
+        <span class="span_font" style="font-size: 20px; color: 3072C1">회원가입 하러가기</span></a></div>
+
+
+</div>
+</div>
+    </div>
+    </div>
+<script  type="text/javascript" src="{% static '/js/test.js' %}"></script>
+</body>
+
+{% endblock %}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myPage Page</title>
+    <link rel="stylesheet" href="{% static 'habin/css/myPage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/set.css' %}">
+</head>
+<body>
+    <div class="myPage-container">
+        <h1><img class="logo" src="logo.png" alt="Logo"></h1>
+        <div class="logo-divider"></div>
+        <div class="page-option">
+            <div class="page-link">
+            <a class="to-mainPage" href="{% url 'user:main_site' %}">메인 화면  </a>
+            <a class="to-myPage" href="{% url 'user:mypage' %}">  > 마이페이지</a>
+            </div>
+            <a class="imf-edit" href="{% url 'user:edit_member' %}"> 수정 </a>
+        </div>
+        <div class="user-data">
+            <div class="user-data-item">
+                <span>이름</span>
+                <span>{{ name }}</span>
+            </div>
+            <div class="divider"></div>
+            <div class="user-data-item">
+                <span>전화번호</span>
+                <span>{{ phone_num }}</span>
+            </div>
+            <div class="divider"></div>
+            <div class="user-data-item">
+                <span>이메일</span>
+                <span>{{ email_adress }}</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <div class="request-container">
+
+            {% if post and helper_set == False %}
+             <div class="full">
+                <div class="request-message"> 요청 내용 ~ {{ post.content }}</div>
+                <div class="request-S">
+                    <div class="request-imf-S">
+                        <span> > 요청 시간 :  </span>
+                        <span> {{ post.date_time }}</span>
+                    </div>
+                    <div class="request-imf-S">
+                        <span> > 요청 장소 :</span>
+                        <span>{{ post.address}}</span>
+                    </div>
+                </div>
+                <a class="F5-link" href="{% url 'user:mypage' %}">도우미 확인하기</a>
+                 <a href="{% url 'user:MyPage_del' %}">삭제</a>
+                 <a href="{% url 'user:MyPage_edit' %}">수정</a>
+            </div>
+            {% endif %}
+            {% if post == False and helper_check == False %}
+            <div class="empty">
+                <div class="empty-message">요청 내역이 비어있습니다.</div>
+                <a class="help-link" href="{% url 'user:post_make' %}">도움 요청하러 가기</a>
+            </div>
+            {% endif %}
+
+            {% if post.helper_user and helper_set == True %}
+            <div class="full">
+                <div class="request-message">{{ post.content }} 요청 내용 ~</div>
+
+                <div class="helper-imf">
+                    <div class="helper-message">당신의 도우미를 찾았어요. 약속된 시간과 장소에서 도우미를 만나요 !</div>
+                    <div> > 도우미 이름 : {{ post.helper_user.name }}</div>
+                </div>
+
+                <div class="request">
+                    <div class="request-imf">
+                        <span class="R-imf"> > 요청 시간 :</span>
+                        <span>{{ post.date_time }}</span>
+                    </div>
+                    <div class="request-imf">
+                        <span class="R-imf"> > 요청 장소 :</span>
+                        <span>{{ post.address}}</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="map" id="map"></div>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=87aaf00778b7a0f43ac93829d5a16e07&libraries=services"></script>
+                    <script>
+                    var container = document.getElementById('map');
+                    var options = {
+                            center: new kakao.maps.LatLng(33.450701, 126.570667), // 기본 지도 주소
+                            level: 3
+                        };
+                    var imageSrc = 'https://LOGO 이미지', // 마커이미지 (로고 이미지) 주소
+                        imageSize = new kakao.maps.Size(64, 69),
+                        imageOption = {offset: new kakao.maps.Point(27, 69)};
+
+                    var map = new kakao.maps.Map(container, options);
+                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+                        markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); //요청 장소 마커
+
+                    var marker = new kakao.maps.Marker({
+                        position: markerPosition,
+                        image: markerImage
+                    });
+                    marker.setMap(map);
+                    </script>
+                </div>
+            </div>
+            {% endif%}
+            {% for helper_post in helper_post %}
+            <div class="full">
+                <div class="request-message">{{ helper_post.content }}</div>
+                <div class="request">
+            <div class="request-imf">
+                        <span class="R-imf"> > 요청자 이름 :</span>
+                        <span>{{ helper_post.user.name }}</span>
+                    </div>
+            <div class="request-imf">
+                        <span class="R-imf"> > 요청 시간 :</span>
+                        <span>{{ helper_post.date_time }}</span>
+                    </div>
+            <div class="request-imf">
+                        <span class="R-imf"> > 요청 장소 :</span>
+                        <span>{{ helper_post.address }}</span>
+                    </div>
+                    </div>
+                <div>
+                    <div class="map" id="map"></div>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=87aaf00778b7a0f43ac93829d5a16e07"></script>
+                    <script>
+                    var container = document.getElementById('map');
+                    var options = {
+                            center: new kakao.maps.LatLng(33.450701, 126.570667), // 기본 지도 주소
+                            level: 3
+                        };
+                    var imageSrc = 'https://LOGO 이미지', // 마커이미지 (로고 이미지) 주소
+                        imageSize = new kakao.maps.Size(64, 69),
+                        imageOption = {offset: new kakao.maps.Point(27, 69)};
+
+                    var map = new kakao.maps.Map(container, options);
+                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+                        markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); //요청 장소 마커
+
+                    var marker = new kakao.maps.Marker({
+                        position: markerPosition,
+                        image: markerImage
+                    });
+                    marker.setMap(map);
+                    </script>
+                </div>
+            </div>
+            <a href="{% url 'user:helper_disconnect' helper_post.id %}">연결 끊기</a>
+            {% endfor %}
+            </div>
+        </div>
+    <div>
+        <div class="container">
+        <div class="divider"></div></div>
+        <div class="container">
+        <div class="withdrawal" style="width: 800px; text-align: right">
+            <a class="witdrawal-btn" href="{% url 'user:delete_account' %}">탈퇴하기</a>
+        </div></div>
+
+
+</body>
+{% endblock %}
+</html>

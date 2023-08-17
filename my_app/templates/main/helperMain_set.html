@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'leesm/css/nanmain.css' %}">
+    {% comment %} <link rel="stylesheet" href="static/leesm/css/nanmain.css"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/set.css' %}">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="bodycon">
+    <div class="main">
+        <img  src="{% static 'leesm/img/KakaoTalk_20230809_145228559.png' %}" alt="Logo">
+    </div>
+    <div class="uibar">
+<a href="{% url 'user:main_site' %}"><img class="logo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></a>
+        <div class="mypagebox">
+            <img src="{% static 'leesm/img/Ellipse.png' %}" alt="sdf" class="im">
+            <div class="mypage"><a style="text-decoration: none; color: black" href="{% url 'user:mypage' %}">마이페이지</a></div>
+        </div>
+        <div class = "logoutbox">
+              <form style="margin-left: 20px" method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  <button style="background: none; border: none; padding: 0; margin: 0; cursor: pointer; font-size: 20px" type="submit">
+    로그아웃</button>
+</form>
+          </div>
+    </div>
+<!--<a class="btn-S" href="{% url 'user:category_set' %}?param1=eCommerce">이커머스</a>-->
+<!--<a class="btn-S" href="{% url 'user:category_set' %}?param1=NFT">NFT</a>-->
+<!--<a class="btn-S" href="{% url 'user:category_set' %}?param1=public service">공공서비스</a>-->
+<div class="maincon" style="width: 800px; height: 300px">
+        <div style="display: flex">
+            <a href="{% url 'user:category_set' %}?param1=eCommerce" class="helper_cate" style="padding-top: 10px; margin: 30px">
+                <div class="container" style="text-align: center">
+                <div style="width: 100px; height: 100px; margin-right: 7px">
+                    <img style="width: 100%; height: auto" src="{% static 'img/eco.png' %}" alt=""></div></div>
+            <div class="container" style="text-align: center">
+                <span style="font-size: 20px"> 이커머스 </span></div></a>
+    <a href="{% url 'user:category_set' %}?param1=NFT" class="helper_cate" style="padding-top: 10px; margin: 30px">
+                <div class="container" style="text-align: center">
+                <div style="width: 100px; height: 100px;">
+                    <img style="width: 100%; height: auto" src="{% static 'img/blockchain.png' %}" alt=""></div></div>
+            <div class="container" style="text-align: center">
+                <span style="font-size: 20px"> 블록체인 </span></div></a>
+    <a href="{% url 'user:category_set' %}?param1=public_service" class="helper_cate" style="padding-top: 10px; margin: 30px">
+                <div class="container" style="text-align: center">
+                <div style="width: 100px; height: 100px">
+                    <img style="width: 100%; height: auto" src="{% static 'img/public_ser.png' %}" alt=""></div></div>
+            <div class="container" style="text-align: center">
+                <span style="font-size: 20px"> 공공서비스 </span></div></a></div>
+
+    </div>
+
+</body>
+</html>
+{% endblock %}

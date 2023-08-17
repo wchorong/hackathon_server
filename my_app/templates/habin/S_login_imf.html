@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S_login_imfs Page</title>
+    <link rel="stylesheet" href="S_login_imf.css">
+</head>
+<body>
+    <div class="S_login_imf-container">
+        <img class="logo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo">
+        <div class="divider"></div>
+        <form class="S_login_imf">
+            <label for="username">이름을 입력하세요</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="phone">전화번호를 입력하세요</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3,4}[0-9]{4}" placeholder="000-0000-0000(숫자만 입력해주세요)" required>
+            
+            <div class="helper-checkbox">
+                <input type="checkbox" id="helper" name="helper">
+                <label for="helper">도우미 되기</label>
+            </div>
+            <input type="submit" value="회원정보 저장하기">
+        </form>
+    </div>
+</body>
+</html>

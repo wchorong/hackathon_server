@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>도우미 메인사이트</title>
+</head>
+<body>
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% for post in post %}
+<a href="{% url 'user:accept_helper' post.id %}">
+<div>내용 : {{ post.content }}</div>
+<div>주소 : {{ post.address }}</div>
+<div>시간 : {{ post.date_time }}</div>
+</a>
+{% endfor %}
+<a href="{% url 'user:mypage' %}">마이 페이지</a>
+{% endblock%}
+</body>
+</html>

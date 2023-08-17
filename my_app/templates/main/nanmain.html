@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'leesm/css/nanmain.css' %}">
+    {% comment %} <link rel="stylesheet" href="static/leesm/css/nanmain.css"> {% endcomment %}
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <title>Document</title>
+
+</head>
+
+<body class="bodycon">
+    <div class="main">
+        <img  src="{% static 'leesm/img/KakaoTalk_20230809_145228559.png' %}" alt="Logo"></img>
+    </div>
+    <div class="uibar">
+        {% if tutorial %}
+
+        <div class="tuto1" id="tuto1" name = "tuto1">
+            <img src="{% static 'leesm/img/Arrow 1.png' %}" alt="" class = "tuto1img">
+            {% comment %} <img src="leesm/img/Arrow 1.png" alt=""> {% endcomment %}
+            <div class="tutobox1">
+
+                <div class="line">
+                    <img class="tutologo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
+                </div>
+                <div class="tutocontent">
+                    이곳을 누르면 마이페이지로 이동합니다
+                </div>
+                <button onclick="next('tuto1','tuto2')"> 다음>> </button>
+
+            </div>
+        </div>
+        {% endif %}
+        <a href="{% url 'user:main_site' %}"><img class="logo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></a>
+        <div class="mypagebox">
+            <img src="{% static 'leesm/img/Ellipse.png' %}" alt="sdf" class="im">
+            <div class="mypage"><a style="text-decoration: none; color: black" href="{% url 'user:mypage' %}">마이페이지</a></div>
+        </div>
+        <div class = "logoutbox">
+              <form style="margin-left: 20px" method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  <button style="background: none; border: none; padding: 0; margin: 0; cursor: pointer; font-size: 20px" type="submit">
+    로그아웃</button>
+</form>
+          </div>
+    </div>
+    {% if tutorial %}
+        <div class="tuto2" id = "tuto2" name = "tuto2" style="display: none;">
+            <img src="{% static 'leesm/img/Arrow 2.png' %}" alt="" class = "tuto2img">
+            {% comment %} <img src="leesm/img/Arrow 2.png" alt=""> {% endcomment %}
+            <div class="tutobox2">
+                <div class="line">
+                    <img class="tutologo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
+                </div>
+                <div class="tutocontent">
+                    도움을 요청하려면 이 버튼을 누르세요
+                </div>
+                <button onclick="previous('tuto2','tuto1')"> << 이전 </button>
+            </div>
+        </div>
+        {% endif %}
+        <div class="maincon">
+            <div class="help">도움이 필요하십니까?</div>
+            {% if tutorial %}
+            <a href="{% url 'user:tutorial_make' %}" class="helpcall">도우미 요청</a>
+            {% else %}
+            <a href="{% url 'user:post_make' %}" class="helpcall">도우미 요청</a>
+            {% endif %}
+            
+            <a class="helper" href="{% url 'user:tutorial_main' %}" >🔍설명서 보기></a>
+    </div>
+
+
+    
+    
+    
+    <script type="text/javascript" src="{% static 'leesm/js/nanmain.js' %}"></script>
+</body>
+{% endblock %}
+
+</html>

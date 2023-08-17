@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load i18n %}
+{% load static %}
+{% block content %}
+<head>
+    {% if tutorial %}
+    <style>
+        .inputbox1{
+            box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+        }
+    </style>
+    {% endif %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signUp Page</title>
+    <link href="{% static 'leesm/css/signup.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/set.css' %}" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+    <div class="signUp-container">
+        <h1><img class="logo" src="logo.png" alt="Logo"></h1>
+        <div class="divider"></div>
+
+        <form style="width: 1000px" class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+  <div class="container">
+      {% if form.errors %}
+    <span style="font-size: 20px; color: red">
+        {% for field in form %}
+            {% for error in field.errors %}
+        {{ error }}<br>
+            {% endfor %}
+        {% endfor %}
+    </span>{% endif %}</div>
+            <div class="www container">
+                <div class="inputbox1" id="1">
+                    <label for="email">이메일을 입력하세요</label>
+                    <input type="email" id="email" name="email" required
+            value="{{ form.email.value|default_if_none:'' }}">
+                </div>
+                <div class="inputbox" id="2">
+                    <label for="password1">비밀번호를 입력하세요</label>
+                    <input type="password" id="password1" name="password1" required>
+                </div>
+                <div class="inputbox" id="3">
+                    <label for="password2">비밀번호를 다시 입력하세요</label>
+                    <input type="password" id="password2" name="password2" required>
+                </div>
+                <div class="inputbox" id="4">
+                    <label for="name">이름을 입력하세요</label>
+                    <input type="text" id="name" name="name" required
+            value="{{ form.name.value|default_if_none:'' }}">
+                </div>
+                <div class="inputbox" id="5">
+                    <label for="phone_num">전화번호를 입력하세요</label>
+                    <input type="tel" id="phone_num" name="phone_num" pattern="[0-9]{3}[0-9]{3,4}[0-9]{4}" placeholder="000-0000-0000(숫자만 입력해주세요)" required
+            value="{{ form.phone_num.value|default_if_none:'' }}">
+                </div>
+                <div class="helper-checkbox">
+                    <input type="checkbox" name="helper_check" value='false' id="helper_check"/><label for="helper_check">도우미로 등록하기</label>
+                </div>
+                <div class="inputbox" id="6">
+                    <input type="submit" value="회원가입 하기">
+                </div>
+                
+            </div>
+
+        </form>
+        {% if tutorial %}
+        <div class="tuto1" id="tuto1">
+            <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg1">
+            <div class="tutobox1">
+            
+                <div class="line">
+                    <div class="tutologo">
+                        로고
+                    </div>
+                </div>
+                <div class="tutocontent">
+                    이메일을 입력하세요
+                </div>
+                <div onclick="next1('tuto1','tuto2','1','2','email')" class="bttn">다음>></div>
+            </div>
+        </div>
+
+        <div class="tuto2" id="tuto2">
+            <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg2">
+            <div class="tutobox2">
+            
+                <div class="line">
+                    <div class="tutologo">
+                        로고
+                    </div>
+                </div>
+                <div class="tutocontent">
+                    비밀번호를 입력해 주세요
+                </div>
+                <div class="btnwr">
+                    <div onclick="previous('tuto2','tuto1','1','2')" class="bttn"><< 이전</div>
+                    <div onclick="next1('tuto2','tuto3','2','3','password1')" class="bttn">다음>></div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="tuto3" id="tuto3">
+            <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg3">
+            <div class="tutobox3">
+            
+                <div class="line">
+                    <div class="tutologo">
+                        로고
+                    </div>
+                </div>
+                <div class="tutocontent">
+                    비밀번호를 한번더 입력해 주세요
+                </div>
+                <div class="btnwr">
+                    <div onclick="previous('tuto3','tuto2','2','3')" class="bttn"><< 이전</div>
+                    <div onclick="next1('tuto3','tuto4','3','4','password1')" class="bttn">다음>></div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="tuto4" id="tuto4">
+            <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg4">
+            <div class="tutobox4">
+            
+                <div class="line">
+                    <div class="tutologo">
+                        로고
+                    </div>
+                </div>
+                <div class="tutocontent">
+                    이름을 입력해 주세요
+                </div>
+                <div class="btnwr">
+                    <div onclick="previous('tuto4','tuto3','3','4')" class="bttn"><< 이전</div>
+                    <div onclick="next1('tuto4','tuto5','4','5','name')" class="bttn">다음>></div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="tuto5" id="tuto5">
+            <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg5">
+            <div class="tutobox5">
+            
+                <div class="line">
+                    <div class="tutologo">
+                        로고
+                    </div>
+                </div>
+                <div class="tutocontent">
+                    전화번호를 입력해 주세요
+                </div>
+                <div class="btnwr">
+                    <div onclick="previous('tuto5','tuto4','4','5')" class="bttn"><< 이전</div>
+                    <div onclick="next1('tuto5','tuto6','5','6','phone_num')" class="bttn">다음>></div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="tuto6" id="tuto6">
+            <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg6">
+            <div class="tutobox6">
+            
+                <div class="line">
+                    <div class="tutologo">
+                        로고
+                    </div>
+                </div>
+                <div class="tutocontent">
+                    버튼을 누르면 회원가입이 완료됩니다
+                </div>
+                <div onclick="previous('tuto6','tuto5','5','6')" class="bttn"><< 이전</div>
+                <!-- <div onclick="next1('tuto1','tuto2')" class="bttn">다음>></div> -->
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <script type="text/javascript" src="{% static 'leesm/js/loginout.js' %}"></script>
+<script>
+  const checkbox = document.getElementById('helper_check');
+
+    checkbox.addEventListener('change', function() {
+      if (checkbox.checked) {
+        checkbox.value = true;
+      } else {
+        checkbox.value = false;
+      }
+    });
+
+</script>
+</body>
+{% endblock %}
+
+</html>

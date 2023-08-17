@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'leesm/css/reviewpage.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font.css' %}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <title>Document</title>
+  </head>
+  <body class="bodycon">
+    <div class="uibar">
+      <img class="logo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
+      <div class="tuto"><span class="span_font">튜토리얼</span></div>
+      <div class="mypagebox">
+        <img src="{% static 'jun/img/Ellipse.png' %}" alt="sdf" class="im" />
+        <div class="mypage"><a style="text-decoration: none; color: black" href="{% url 'user:mypage' %}">
+          <span class="span_font">마이페이지</span></a></div>
+      </div>
+      <div class = "logoutbox">
+        <a>로그아웃</a>
+      </div>
+    </div>
+    <form action="">
+      <div class="btnbox">
+        <div class="help">도움을 만족하십니까?</div>
+        <div class="imgbox">
+          <img src="{% static 'leesm/img/KakaoTalk_20230807_134929315 1.png' %}" alt="">
+          <img src="{% static 'leesm/img/KakaoTalk_20230807_134929315 2.png' %}" alt="">
+      </div>
+        <div class="btnwr">
+          <a style="text-decoration: none;" href="{% url 'user:delete_post' %}">
+            <span class="span_font">예</span></a>
+          <a style="text-decoration: none;" href="{% url 'user:delete_post_negative' %}">
+            <span class="span_font">아니요</span></a>
+        </div>
+      </div>
+    </form>
+  </body>
+{% endblock %}
+</html>

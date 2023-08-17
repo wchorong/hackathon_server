@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+{% block content %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'jun/css/helperMain.css' %}">
+    <link rel="stylesheet" href="/static/jun/css/helperMain.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4e2fccfa5e7db85e31c68bfad31e39f2&libraries=services,clusterer,drawing"
+    ></script>
+    <title>helperMain</title>
+  </head>
+  <body class="bodycon">
+    <div class="uibar">
+      <div class="logo" src="{% static 'leesm/img/Ditto.png' %}" ></div>
+      <div class="mypagebox">
+        <img src="{% static 'leesm/img/Ellipse%203.png' %}" alt="sdf" class="im">
+            <div class="mypage"><a style="text-decoration: none; color: black" href="{% url 'user:mypage' %}">마이페이지</a></div>
+            <div class = "logoutbox">
+              <a>로그아웃</a>
+          </div>
+      </div>
+      
+    </div>
+    <div id="sections">
+      <section class="left">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <ul id="modal-open">
+          <li id="moveLocation-1">
+            <a href="javascript:void(0);">
+              <span id="nanTime1">20230806</span>
+              <span id="nanLocation">서울 종로구 율곡로 99</span>
+            </a>
+          </li>
+          <li id="moveLocation-2">
+            <a href="javascript:void(0);">
+              <span id="nanTime">20230807</span>
+              <span id="nanLocation">서울 종로구 사직로 161 경복궁</span>
+            </a>
+          </li>
+          <li id="moveLocation-3">
+            <a href="javascript:void(0);">
+              <span id="nanTime">20230808</span>
+              <span id="nanLocation">서울 중구 세종대로 99 덕수궁</span>
+            </a>
+          </li>
+          <li id="moveLocation-4">
+            <a href="javascript:void(0);">
+              <span id="nanTime">20230809</span>
+              <span id="nanLocation">경북 경주시 불국로 385 불국사</span>
+            </a>
+          </li>
+          <li id="moveLocation-5">
+            <a href="javascript:void(0);">
+              <span id="nanTime">202308010</span>
+              <span id="nanLocation">경북 경주시 원화로 102 안압지</span>
+            </a>
+          </li>
+          <li id="moveLocation-6">
+            <a href="javascript:void(0);">
+              <span id="nanTime">20230811</span>
+              <span id="nanLocation">경북 경주시 인왕동 839-1</span>
+            </a>
+          </li>
+          <li id="moveLocation-7">
+            <a href="javascript:void(0);">
+              <span id="nanTime">20230812</span>
+              <span id="nanLocation">경상북도 경주시 일정로 186</span>
+            </a>
+          </li>
+          <li id="moveLocation-8">
+            <a href="javascript:void(0);">
+              <span id="nanTime">20230813</span>
+              <span id="nanLocation">경기 고양시 일산서구 킨텍스로 217-60</span>
+            </a>
+          </li>
+          <p>안녕</p>
+          <p>안녕</p>
+          <p>안녕</p>
+          <p>안녕</p>
+          <p>안녕</p>
+          <p>안녕</p>
+=======
+=======
+>>>>>>> leesm
+        <ul>
+          {% for post in post %}
+          <li>
+            <a href="">
+              <span>날짜 : {{post.}}</span>
+              <span>주소</span>
+            </a>
+          </li>
+          {% endfor %}
+<<<<<<< HEAD
+>>>>>>> leesm
+=======
+>>>>>>> leesm
+        </ul>
+      </section>
+      <section class="right">
+        <div class="dittoComputer">
+          <img src="/static/jun/img/ditto.jpg" alt="sdf" />
+        </div>
+        <div class="rightBox" id="rightBox">
+          <div class="contentbox">
+            본문내용 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~
+          </div>
+          <div class="mapAndContent">
+            <div id="map"></div>
+            <div class="mapContent">
+              <div class="nanTime-right">>난민 요청 시간</div>
+              <div class="nanLocation-right">>난민 위치 정보</div>
+            </div>
+            <div class="helpBtn-Box">
+              <a href="" class="leftBtn" id="help">도움주기</a>
+              <a href="" class="rightBtn" id="close">창 닫기</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="helperMain.js"></script>
+  </body>
+{% endblock %}
+</html>

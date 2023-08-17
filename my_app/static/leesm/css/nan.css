@@ -1,0 +1,736 @@
+.btnwr{
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+
+}
+
+.line{
+    width: 370px;
+    height: 60px;
+    border-bottom: 1px #1A4266 solid ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.tutologo{
+    width: 100px;
+    height: 40px;
+}
+.tutocontent{
+    margin-top: 22px;
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bttn{
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    width: 71px;
+    height: 27px;
+    border-radius: 10px;
+    background: rgba(16, 90, 159, 0.80);
+    margin-top: 10px;
+    /* margin-left: 270px; */
+    text-align: center;
+    padding: 3px;
+}
+
+input[type=date]::-webkit-datetime-edit-text { 
+    -webkit-appearance: none; 
+    display: none; 
+    margin-left: 20px;
+} 
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+input[type=time]::-webkit-datetime-edit-text { 
+    -webkit-appearance: none; 
+    display: none; 
+    margin-left: 20px;
+} 
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+*{
+    box-sizing: border-box;
+}
+.bodycon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.bodybox{
+    height: 1100px;
+    width: 1000px;
+    border: 1px black solid;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+/* ----------------- */
+.logoutbox button{
+    margin-left: 23px;
+    margin-bottom: 23px;
+    margin-top: 50px;
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+}
+.logoutbox button:hover{
+    font-weight: 700;
+}
+.logoutbox{
+    margin-bottom: 23px;
+    margin-top: 50px;
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+}
+.uibar{
+    width: 1400px;
+    height: 100px;
+    border-bottom: 3px #1A4266 solid;
+    display: flex;
+}
+
+.logo{
+    width: 185px;
+    height: 70px;
+    flex-shrink: 0;
+    margin-bottom: 23px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+.tutoconbox{
+    margin-top: 42px;
+    margin-left: 720px;
+    margin-bottom: 17px;
+}
+.tuto{
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: normal;
+    z-index: -1;
+    text-decoration: none;
+}
+.tuto:hover{
+    font-weight: 700;
+}
+
+.im { 
+    width: 55px;
+    height: 55px;
+    z-index: -2;
+}
+
+.mypagebox{
+    display: flex;
+    align-items: center;
+    margin-top: 38px;
+    margin-bottom: 7px;
+    margin-left: 26px;
+}
+
+.mypagebox:hover{
+    font-weight: 700;
+}
+
+.mypage{
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 8px;
+}
+.mypage:hover{
+    font-weight: 700;
+}
+/* ---------------------- */
+.mainbox{
+    margin-top: 20px;
+    width: 600px;
+    height: 1100px;
+    /* border: 1px black  solid; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+/* ------------------ */
+
+.tuto1 {
+    /* display: none; */
+    margin-left: -660px;
+    margin-top: -1045px;
+    z-index: 2;
+}
+.tutoimg1{
+    margin-left: 100px;
+    /* margin-top: 500px; */
+    /* z-index: 1000; */
+}
+
+.tutobox1{
+    border-radius: 50px;
+    /* display: none; */
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -280px;
+    margin-top: -70px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.mapbox{
+    width: 640px;
+    height: 440px;
+    /* border: 1px black solid; */
+    /* border-radius: 30px; */
+    /* box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px; */
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.map{
+    width: 600px;
+    height: 320px;
+    border: 1px black solid;
+    border-bottom: 1px white solid;
+    border-radius: 30px 30px 0px 0px / 30px 30px 0px 0px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.add{
+    margin-top: 17px;
+    /* z-index: 2; */
+    /* text-align: center; */
+    position: relative;
+    width: 400px;
+    height: 60px;
+    border: 1px black solid;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.add input{
+    /* width: 400px;
+    height: 60px; */
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+    color: #656565;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 20px;
+    /* z-index: 1; */
+    z-index: 3;
+}
+.add input:focus{
+    outline: none;
+    background-color: white;
+}
+.add button{
+    position: absolute;
+    width: 34.778px;
+    height: 38.049px;
+    border: none;
+    background-color: white;
+    margin-left: 340px;
+    
+    z-index: 3;
+}
+
+
+.mapaddress input{
+    /* width: 100%;
+    height: 100%; */
+    width: 600px;
+    height: 80px;
+    border-radius: 0px 0px 30px 30px /0px 0px 30px 30px;
+    margin: 0px;
+    
+    color: #222;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 24px;
+    background-color: white;
+    border: 1px black solid;
+    z-index: 1;
+}
+/* ---------------------------- */
+.tuto2 {
+    display: none;
+    margin-left: -600px;
+    margin-top: -550px;
+    z-index: 1;
+}
+
+.contentbox{
+    margin-top: 6px;
+    width: 540px;
+    height: 240px;
+    /* border: #000 1px solid; */
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* box-shadow: rgba(0,0,0,0.5) 0 0 0 9999px;; */
+}
+
+.contentbox input{
+    width: 500px;
+    height: 184px;
+    border-radius: 30px;
+    background-color: white;
+    border: 1px black solid;
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+
+.contentbox label{
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: 300px;
+}
+
+.tutoimg2{
+    margin-left: -90px;
+    /* margin-top: 500px; */
+    /* z-index: 1000; */
+}
+
+.tutobox2{
+    /* display: none; */
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -350px;
+    margin-top: -70px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    border-radius: 50px;
+}
+/* ----------------------------- */
+.datebox{
+    margin-top: 6px;
+    z-index: 1;
+    /* box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px; */
+    width: 540px;
+    /* height: 150px; */
+    /* border: #000 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.tuto3 {
+    display: none;
+    margin-left: -600px;
+    margin-top: -350px;
+    z-index: 1;
+}
+.tutoimg3{
+    margin-left: -90px;
+    /* margin-top: 500px; */
+    /* z-index: 1000; */
+}
+
+.tutobox3{
+    /* display: none; */
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -350px;
+    margin-top: -100px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    border-radius: 50px;
+}
+.datebox input {
+    z-index: 1001;
+    width: 500px;
+    height: 80px;
+    border-radius: 30px;
+    background-color: white;
+    border: 1px black solid;
+
+    padding: 20px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: #656565;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+}
+.datebox label{
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: 340px;
+}
+.calendarbox{
+    width: 500px;
+    height: 402px;
+    border: 1px solid #1A4266;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 10px;
+    /* z-index: -1; */
+}
+
+.date_wrap{
+    width: 468px;
+    height: 362px;
+    border: 1px solid #1A4266;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.date_month_hd{
+    height: 41px;
+    margin-bottom: 19px;
+}
+
+.button_wrap{
+    display: flex;
+    
+    justify-content:space-around;
+    margin-bottom: 19px;
+}
+
+.month_n{
+    width: 141px;
+    height: 41px;
+    font-weight: 400;
+    font-size: 24px;
+    padding-top: 15px;
+    margin-left: 48px;
+    margin-right: 48px;
+    text-align: center;
+}
+
+.month-moveL{
+    color: #1A4266;
+    font-family: Arimo;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.month-moveR{
+    color: #1A4266;
+    font-family: Arimo;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/*table body*/
+
+.date_wrap .date_month_bd{
+    
+    
+    margin: 0;
+    
+    font-weight: lighter;
+}
+
+.date_month_bd thead th{
+    width: 40px; 
+    font-weight:600;
+}
+
+thead tr .sun_h{
+    color: red;
+}
+thead tr .sat_h{
+    color: blue;
+}
+
+tbody td{
+    width: 55px;
+    height: 40px;
+    text-align: center;
+    
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+.current-date{
+    padding: 10px;
+    width: 55px;
+    height: 40px;
+    text-align: center;
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    background-color: gray;
+}
+
+
+/* --------------------------------------------- */
+.timebox {
+    margin-top: 6px;
+    z-index: 1;
+        /* box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px; */
+        width: 540px;
+        /* height: 150px; */
+        /* border: #000 1px solid; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+}
+.tuto4 {
+    display: none;
+    margin-left: -600px;
+    margin-top: -215px;
+    z-index: 1;
+}
+.tutoimg4{
+    margin-left: -90px;
+    /* margin-top: 500px; */
+    /* z-index: 1000; */
+}
+
+.tutobox4{
+    display: none;
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -350px;
+    margin-top: -100px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    border-radius: 50px;
+}
+.timebox input{
+    width: 500px;
+    height: 80px;
+    border-radius: 30px;
+    background-color: white;
+    border: 1px black solid;
+
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    color: #656565;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.timebox label{
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    width: 500px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* .timecon{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+} */
+.timeinputbox{
+    margin-top: 10px;
+    width: 500px;
+    height: 560px;
+    border: #1A4266 1px solid;
+    padding: 10px;
+}
+
+.timeinputboxiner{
+    width: 480px;
+    height: 540px;
+    border: #1A4266 1px solid;
+}
+
+.timebtnbox{
+    height: 60px;
+    width: 480px;
+    border: #1A4266 1px solid;
+    display: flex;
+    
+}
+.timebtn{
+    width: 100px;
+    height: 40px;
+    border: 1px #1A4266 solid;
+    color: #1A4266;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.timebtn2{
+    width: 100px;
+    height: 40px;
+    border: 1px #1A4266 solid;
+    color: #1A4266;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: gray;
+}
+/* ------------------------------------------- */
+.btnbox{
+    margin-top: 38px;
+    z-index: 1;
+}
+
+.btnbox a{
+    display: flex;
+    width: 302px;
+    height: 83px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 18px 68px 17px 68px;
+    justify-content: center;
+    align-items: center;
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    border: #1A4266 2px solid;
+}
+.btnbox button{
+    display: flex;
+    width: 302px;
+    height: 83px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 18px 68px 17px 68px;
+    justify-content: center;
+    align-items: center;
+    color: #1A4266;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    border: #1A4266 2px solid;
+}
+.btnbox button:hover{
+    background-color: #1a4266;
+    color: white;
+}
+.tuto5 {
+    display: none;
+    margin-left: -600px;
+    margin-top: -100px;
+    z-index: 1;
+}
+.tutoimg5{
+    margin-left: 90px;
+    margin-top: 20px;
+    /* z-index: 1000; */
+}
+
+.tutobox5{
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -250px;
+    margin-top: -130px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 50px;
+}
+
+

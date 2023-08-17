@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <link rel="stylesheet" href="{% static 'leesm/css/nan.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/set.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a191483d57140c657a95e287bfc4c5d7&libraries=services,clusterer,drawing"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+
+
+    <title>Document</title>
+    {% if tutorial %}
+    <style>
+        .mapbox{
+            box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+        }
+    </style>
+    {% endif %}
+</head>
+<body class="bodycon">
+    <div class="uibar">
+        <a href="{% url 'user:main_site' %}"><img class="logo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></a>
+        <div class = "tutoconbox">
+            <a class="tuto" href = "{% url 'user:tutorial_make' %}" style="text-decoration: none; ">도와드릴까요?</a>
+        </div>
+        <div class="mypagebox">
+            <img src="{% static 'leesm/img/Ellipse.png' %}" alt="sdf" class="im">
+            <div class="mypage"><a style="text-decoration: none; color: black" href="{% url 'user:mypage' %}">마이페이지</a></div>
+        </div>
+        <div class = "logoutbox">
+              <form style="margin-left: 20px" method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  <button style="background: none; border: none; padding: 0; margin: 0; cursor: pointer; font-size: 20px" type="submit">
+    로그아웃</button>
+</form>
+        </div>
+    </div>
+
+    {% if edit_set %}
+<form method="post" action="{% url 'user:edit_post' %}">
+    {% else %}
+<form method="post" action="{% url 'user:post_make' %}">
+    {% endif %}
+    {% csrf_token %}
+        <div class="mainbox">
+            <div class="mapbox" id = "mapbox">
+                <div id="map" class="map">
+
+                    <div class="add">
+                        <input type="text" id="address" placeholder="주소 검색하기">
+                        <button type="button" id="searchBtn"><img src="{% static 'leesm/img/돋보기.png' %}" alt="검색"></button>
+                    </div>
+
+                </div>
+                <div class="mapaddress">
+                    {% if form.address.value %}
+                    <input type="text" name="address" placeholder="oo도 oo시 oo동"
+                    value="{{ form.address.value|default_if_none:'' }}" required>
+                    {% else %}
+                    <input type="text" name="address" id="address"
+                value="{{ address|default_if_none:'' }}" required>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="checkbox-group container" style="border: 1px black solid; width: 550px; border-radius: 20px; margin-top: 10px">
+                <label class="checkbox-button">
+                    <div style="display: flex">
+                    <input type="checkbox" value='eCommerce' name="category">
+                    <span class="checkmark"></span>
+                        <span style="font-size: 20px; color:#1A4266">이커머스</span>
+                </div></label>
+                <label class="checkbox-button">
+                    <div style="display: flex">
+                <input type="checkbox" value='NFT' name="category">
+                <span class="checkmark"></span>
+                        <span style="font-size: 20px; color:#1A4266">블록체인</span>
+                    </div></label>
+                <label class="checkbox-button">
+                    <div style="display: flex">
+                    <input type="checkbox" value='public_service' name="category">
+                    <span class="checkmark"></span>
+                        <span style="font-size: 20px; color:#1A4266">공공서비스</span>
+                    </div></label>
+            </div>
+            <div class="contentbox" id ="contentbox">
+                <label for="content"><span>본문 내용을 입력하세요</span></label>
+                {% if form.content.value %}
+                <input type="text" name="content" id="content"
+                value="{{ form.content.value|default_if_none:'' }}" required>
+                {% else %}
+                <input type="text" name="content" id="content"
+                value="{{ content|default_if_none:'' }}" required>
+                {% endif %}
+            </div>
+            <div class="datebox" id = "datebox" value="sdfs">
+                <label for="date"><span>날짜를 선택하세요</span></label>
+                <input type="date" href="#pop_info_1" class="btn_open" value="" name="date" id="date" placeholder="" onclick = "showdate()" required>
+
+                <div class="con">
+                    <div id="pop_info_1" name = "calendar" style="display:none;">
+                        <div class="calendarbox">
+
+                            <div class="date_wrap" >
+
+                                <div class="date_month_hd">
+                                    <div class="button_wrap">
+                                    <div type="button" id="month-prev" class="month-moveL"><</div>
+                                    <div id="yearMonth" class="month_n">2022.05</div>
+                                    <div type="button" id="month-next" class="month-moveR">></div>
+                                    </div>
+                                </div>
+
+                                <table class="date_month_bd">
+                                    <thead>
+                                    <tr>
+                                        <th class="sun_h"><span>일</span></th>
+                                        <th><span>월</span></th>
+                                        <th><span>화</span></th>
+                                        <th><span>수</span></th>
+                                        <th><span>목</span></th>
+                                        <th><span>금</span></th>
+                                        <th class="sat_h">토</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl-month">
+                                    <!--insert calender by javascript-->
+                                </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="timebox" id = "timebox">
+                <label for="time"><span>시간을 선택하세요</span></label>
+                <input id='time' type='time' name='time' value = "" href = "#pop_info_2" class="btn_open" onclick = "showtime()" required/>
+                <div class="con">
+                    <div id="pop_info_2" style="display:none;">
+                        <div class="timeinputbox">
+                            <div class="timeinputboxiner" id = "timeinputboxiner">
+                                {% comment %} <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('06:00:00')" value = "6" id "12345">6:00</div>
+                                    <div class="timebtn" onclick="clicktime('06:30:00')">6:30</div>
+                                    <div class="timebtn" onclick="clicktime('07:00:00')">7:00</div>
+                                    <div class="timebtn" onclick="clicktime('07:30:00')">7:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('08:00:00')">8:00</div>
+                                    <div class="timebtn" onclick="clicktime('08:30:00')">8:30</div>
+                                    <div class="timebtn" onclick="clicktime('09:00:00')">9:00</div>
+                                    <div class="timebtn" onclick="clicktime('09:30:00')">9:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('10:00:00')">10:00</div>
+                                    <div class="timebtn" onclick="clicktime('10:30:00')">10:30</div>
+                                    <div class="timebtn" onclick="clicktime('11:00:00')">11:00</div>
+                                    <div class="timebtn" onclick="clicktime('11:30:00')">11:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('12:00:00')">12:00</div>
+                                    <div class="timebtn" onclick="clicktime('12:30:00')">12:30</div>
+                                    <div class="timebtn" onclick="clicktime('13:00:00')">13:00</div>
+                                    <div class="timebtn" onclick="clicktime('13:30:00')">13:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('14:00:00')">14:00</div>
+                                    <div class="timebtn" onclick="clicktime('14:30:00')">14:30</div>
+                                    <div class="timebtn" onclick="clicktime('15:00:00')">15:00</div>
+                                    <div class="timebtn" onclick="clicktime('15:30:00')">15:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('16:00:00')">16:00</div>
+                                    <div class="timebtn" onclick="clicktime('16:30:00')">16:30</div>
+                                    <div class="timebtn" onclick="clicktime('17:00:00')">17:00</div>
+                                    <div class="timebtn" onclick="clicktime('17:30:00')">17:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('18:00:00')">18:00</div>
+                                    <div class="timebtn" onclick="clicktime('18:30:00')">18:30</div>
+                                    <div class="timebtn" onclick="clicktime('19:00:00')">19:00</div>
+                                    <div class="timebtn" onclick="clicktime('19:30:00')">19:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('20:00:00')">20:00</div>
+                                    <div class="timebtn" onclick="clicktime('20:30:00')">20:30</div>
+                                    <div class="timebtn" onclick="clicktime('21:00:00')">21:00</div>
+                                    <div class="timebtn" onclick="clicktime('21:30:00')">21:30</div>
+                                </div>
+                                <div class="timebtnbox">
+                                    <div class="timebtn" onclick="clicktime('22:00:00')">22:00</div>
+                                    <div class="timebtn" onclick="clicktime('22:30:00')">22:30</div>
+                                    <div class="timebtn" onclick="clicktime('23:00:00')">23:00</div>
+                                    <div class="timebtn" onclick="clicktime('23:30:00')">23:30</div>
+                                </div>{% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btnbox" id = "btnbox">
+                <button type="submit"><span>요청하기</span></button>
+            </div>
+        </div>
+    </form>
+    {% if tutorial %}
+    <div class="tuto1" id="tuto1">
+        <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg1">
+        <div class="tutobox1">
+
+            <div class="line">
+                <img class="tutologo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
+            </div>
+            <div class="tutocontent">
+                이곳에서 도움을 요청할 주소를 입력하세요
+            </div>
+
+            <div onclick="next1('tuto1','tuto2','mapbox','contentbox','address')" class="bttn">다음>></div>
+        </div>
+    </div>
+    <div class="tuto2" id="tuto2">
+        <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg2">
+        <div class="tutobox2">
+
+            <div class="line">
+                <img class="tutologo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
+            </div>
+            <div class="tutocontent">
+                이곳에서 도움 요청사항을 입력하세요
+            </div>
+            <div class="btnwr">
+                <div onclick="previous('tuto2','tuto1','mapbox','contentbox')" class="bttn"><< 이전</div>
+                <div onclick="next1('tuto2','tuto3','contentbox','datebox','content')" class="bttn">다음 >></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="tuto3" id="tuto3">
+        <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg3">
+        <div class="tutobox3">
+
+            <div class="line">
+                <img class="tutologo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
+            </div>
+            <div class="tutocontent">
+                약속 날짜를 선택하세요
+            </div>
+            <div class="btnwr">
+                <div onclick="previous('tuto3','tuto2','contentbox','datebox')" class="bttn"><< 이전</div>
+                <div onclick="next1('tuto3','tuto4','datebox','timebox','date')" class="bttn">다음>></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="tuto4" id="tuto4">
+        <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg4">
+        <div class="tutobox4">
+
+            <div class="line">
+                <img class="tutologo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
+            </div>
+            <div class="tutocontent">
+                약속시간을 선택하세요
+            </div>
+            <div class="btnwr">
+                <div onclick="previous('tuto4','tuto3','datebox','timebox')" class="bttn"><< 이전</div>
+                <div onclick="next1('tuto4','tuto5','timebox','btnbox','time')" class="bttn">다음>></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="tuto5" id="tuto5">
+        <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg5">
+        <div class="tutobox5">
+
+            <div class="line">
+                <img class="tutologo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
+            </div>
+            <div class="tutocontent">
+                이곳에서 도움을 요청할 주소를 입력하세요
+            </div>
+            <div onclick="previous('tuto5','tuto4','timebox','btnbox')" class="bttn"><< 이전</div>
+        </div>
+    </div>
+    {% endif %}
+    <script type="text/javascript" src="{% static 'leesm/js/nan.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/category.js' %}"></script>
+{% endblock %}
+</body>
+</html>

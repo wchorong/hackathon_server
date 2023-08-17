@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signUp Page</title>
+    <link rel="stylesheet" href="signUp.css" />
+  </head>
+  <body>
+    <div class="signUp-container">
+      <h1><img class="logo" src="logo.png" alt="Logo" /></h1>
+      <div class="divider"></div>
+
+      <form>
+        <label for="username">이메일을 입력하세요</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">비밀번호를 입력하세요</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="confirm_password">비밀번호를 다시 입력하세요</label>
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          required
+        />
+
+        <label for="username">이름을 입력하세요</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="phone">전화번호를 입력하세요</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          pattern="[0-9]{3}[0-9]{3,4}[0-9]{4}"
+          placeholder="000-0000-0000(숫자만 입력해주세요)"
+          required
+        />
+
+        <div class="helper-checkbox">
+          <input type="checkbox" id="helper" class="checkbox-style" /><label
+            for="helper"
+            >도우미로 등록하기</label
+          >
+        </div>
+        <input type="submit" value="회원가입 하기" />
+      </form>
+    </div>
+  </body>
+</html>
