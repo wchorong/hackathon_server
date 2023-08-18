@@ -183,7 +183,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .mainbox{
     margin-top: 20px;
     width: 600px;
-    height: 1100px;
+    height: 1200px;
     /* border: 1px black  solid; */
     display: flex;
     align-items: center;
@@ -194,7 +194,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .tuto1 {
     /* display: none; */
     margin-left: -660px;
-    margin-top: -1045px;
+    margin-top: -1150px;
     z-index: 2;
 }
 .tutoimg1{
@@ -311,7 +311,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .tuto2 {
     display: none;
     margin-left: -600px;
-    margin-top: -550px;
+    margin-top: -670px;
     z-index: 1;
 }
 
@@ -393,7 +393,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .tuto3 {
     display: none;
     margin-left: -600px;
-    margin-top: -350px;
+    margin-top: -460px;
     z-index: 1;
 }
 .tutoimg3{
@@ -566,7 +566,7 @@ tbody td{
 .tuto4 {
     display: none;
     margin-left: -600px;
-    margin-top: -215px;
+    margin-top: -315px;
     z-index: 1;
 }
 .tutoimg4{
@@ -711,17 +711,44 @@ tbody td{
 }
 .tuto5 {
     display: none;
+    margin-left: -750px;
+    margin-top: -210px;
+    z-index: 1;
+}
+/* .tutoimg5{ */
+    /* margin-left: 90px; */
+    /* margin-left: -90px; */
+    /* margin-top: 20px; */
+    /* z-index: 1000; */
+/* } */
+
+.tutobox5{
+    display: none;
+    /* z-index: 1000; */
+    width: 400px;
+    height: 150px;
+    background: #C8E4FF;
+    margin-left: -250px;
+    margin-top: -100px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    border-radius: 50px;
+}
+.tuto6 {
+    display: none;
     margin-left: -600px;
     margin-top: -100px;
     z-index: 1;
 }
-.tutoimg5{
+.tutoimg6{
     margin-left: 90px;
     margin-top: 20px;
     /* z-index: 1000; */
 }
 
-.tutobox5{
+.tutobox6{
     width: 400px;
     height: 150px;
     background: #C8E4FF;
@@ -732,5 +759,21 @@ tbody td{
     flex-direction: column;
     border-radius: 50px;
 }
-
-
+/* .checkbox-group_container{
+    border: 1px black solid; 
+    width: 550px; 
+    border-radius: 20px; 
+    margin-top: 10px
+} */
+.catebox{
+    margin-top: 6px;
+    z-index: 1;
+        /* box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px; */
+        width: 570px;
+        /* height: 150px; */
+        /* border: #000 1px solid; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+}

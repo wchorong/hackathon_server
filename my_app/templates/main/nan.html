@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="{% static 'leesm/css/nan.css' %}">
+    {% comment %} <link rel="stylesheet" href="leesm/css/nan.css"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/font.css' %}">
     <link rel="stylesheet" href="{% static 'css/set.css' %}">
 
@@ -79,31 +80,12 @@
                     <input type="text" name="address" placeholder="oo도 oo시 oo동"
                     value="{{ form.address.value|default_if_none:'' }}" required>
                     {% else %}
-                    <input type="text" name="address" id="address"
+                    <input type="text" name="address" id="address1"
                 value="{{ address|default_if_none:'' }}" required>
                     {% endif %}
                 </div>
             </div>
-            <div class="checkbox-group container" style="border: 1px black solid; width: 550px; border-radius: 20px; margin-top: 10px">
-                <label class="checkbox-button">
-                    <div style="display: flex">
-                    <input type="checkbox" value='eCommerce' name="category">
-                    <span class="checkmark"></span>
-                        <span style="font-size: 20px; color:#1A4266">이커머스</span>
-                </div></label>
-                <label class="checkbox-button">
-                    <div style="display: flex">
-                <input type="checkbox" value='NFT' name="category">
-                <span class="checkmark"></span>
-                        <span style="font-size: 20px; color:#1A4266">블록체인</span>
-                    </div></label>
-                <label class="checkbox-button">
-                    <div style="display: flex">
-                    <input type="checkbox" value='public_service' name="category">
-                    <span class="checkmark"></span>
-                        <span style="font-size: 20px; color:#1A4266">공공서비스</span>
-                    </div></label>
-            </div>
+            
             <div class="contentbox" id ="contentbox">
                 <label for="content"><span>본문 내용을 입력하세요</span></label>
                 {% if form.content.value %}
@@ -151,8 +133,9 @@
 
                             </div>
                         </div>
-
+                        
                     </div>
+                    <div style="height: 20px;"></div>
                 </div>
 
             </div>
@@ -220,12 +203,38 @@
                             </div>
                         </div>
                     </div>
+                    
+                </div>
+                <div style="height: 20px;"></div>
+            </div>
+            <div class = "catebox" id = "catebox">
+                <div class="checkbox-group container" style="border: 1px black solid; width: 550px; border-radius: 20px; " > 
+                    <label class="checkbox-button">
+                        <div style="display: flex">
+                        <input type="checkbox" value='eCommerce' name="category">
+                        <span class="checkmark"></span>
+                            <span style="font-size: 20px; color:#1A4266">이커머스</span>
+                    </div></label>
+                    <label class="checkbox-button">
+                        <div style="display: flex">
+                    <input type="checkbox" value='NFT' name="category">
+                    <span class="checkmark"></span>
+                            <span style="font-size: 20px; color:#1A4266">블록체인</span>
+                        </div></label>
+                    <label class="checkbox-button">
+                        <div style="display: flex">
+                        <input type="checkbox" value='public_service' name="category">
+                        <span class="checkmark"></span>
+                            <span style="font-size: 20px; color:#1A4266">공공서비스</span>
+                        </div></label>
                 </div>
             </div>
+            
             <div class="btnbox" id = "btnbox">
                 <button type="submit"><span>요청하기</span></button>
             </div>
         </div>
+    </div>
     </form>
     {% if tutorial %}
     <div class="tuto1" id="tuto1">
@@ -239,7 +248,7 @@
                 이곳에서 도움을 요청할 주소를 입력하세요
             </div>
 
-            <div onclick="next1('tuto1','tuto2','mapbox','contentbox','address')" class="bttn">다음>></div>
+            <div onclick="next1('tuto1','tuto2','mapbox','contentbox','address1')" class="bttn">다음>></div>
         </div>
     </div>
     <div class="tuto2" id="tuto2">
@@ -288,7 +297,7 @@
             </div>
             <div class="btnwr">
                 <div onclick="previous('tuto4','tuto3','datebox','timebox')" class="bttn"><< 이전</div>
-                <div onclick="next1('tuto4','tuto5','timebox','btnbox','time')" class="bttn">다음>></div>
+                <div onclick="next1('tuto4','tuto5','timebox','catebox','time')" class="bttn">다음>></div>
             </div>
 
         </div>
@@ -301,9 +310,27 @@
                 <img class="tutologo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
             </div>
             <div class="tutocontent">
-                이곳에서 도움을 요청할 주소를 입력하세요
+                카테고리를 정해주세요
             </div>
-            <div onclick="previous('tuto5','tuto4','timebox','btnbox')" class="bttn"><< 이전</div>
+            <div class="btnwr">
+                <div onclick="previous('tuto5','tuto4','timebox','catebox')" class="bttn"><< 이전</div>
+                <div onclick="next1('tuto5','tuto6','catebox','btnbox','time')" class="bttn">다음>></div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="tuto6" id="tuto6">
+        <img src="{% static 'leesm/img/Arrow 3.png' %}" alt="" class="tutoimg6">
+        <div class="tutobox6">
+
+            <div class="line">
+                <img class="tutologo" src="{% static 'leesm/img/Ditto.png' %}" alt="Logo"></img>
+            </div>
+            <div class="tutocontent">
+                요청하기를 누르세요
+            </div>
+            <div onclick="previous('tuto6','tuto5','catebox','btnbox')" class="bttn"><< 이전</div>
         </div>
     </div>
     {% endif %}
